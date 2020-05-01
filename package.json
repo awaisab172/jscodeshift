@@ -9,9 +9,10 @@
   "bugs": "https://github.com/facebook/jscodeshift/issues",
   "main": "index.js",
   "scripts": {
-    "prepare": "cp -R src/ dist/",
+    "prepare": "yarn run snyk-protect && cp -R src/ dist/",
     "test": "jest --bail",
-    "docs": "rm -rf docs && jsdoc -d docs -R README.md src/collections/* src/core.js src/Collection.js"
+    "docs": "rm -rf docs && jsdoc -d docs -R README.md src/collections/* src/core.js src/Collection.js",
+    "snyk-protect": "snyk protect"
   },
   "bin": {
     "jscodeshift": "./bin/jscodeshift.js"
@@ -40,7 +41,8 @@
     "node-dir": "^0.1.17",
     "recast": "^0.18.1",
     "temp": "^0.8.1",
-    "write-file-atomic": "^2.3.0"
+    "write-file-atomic": "^2.3.0",
+    "snyk": "^1.316.1"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.1",
@@ -55,5 +57,6 @@
       "bin",
       "sample"
     ]
-  }
+  },
+  "snyk": true
 }
